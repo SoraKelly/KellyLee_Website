@@ -1,0 +1,40 @@
+/* Pixel me Section */
+.pixelSquareIcon {
+    width: 200px;
+    height: 350px;
+    border-radius: 10px;
+    background-color: blue;
+}
+
+.pixelSquareText {
+    display:flex;
+    width: 800px;
+    height: 400px;
+    margin-right: 40px;
+    background-color: red;
+}
+
+
+.pixel-art {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    -moz-image-rendering: crisp-edges; 
+    -o-image-rendering: crisp-edges;
+    -webkit-optimize-contrast: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+
+.PixelIcons{
+    width:200px;
+    height:200px;
+    display:inline-block;
+    transition: transform 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 40px;
+}
+
+.PixelIcons:hover {
+    transform: scale(1.1);
+}
