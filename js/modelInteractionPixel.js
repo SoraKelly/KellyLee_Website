@@ -6,7 +6,7 @@ var img = document.getElementById("myImg");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 
-var images = document.querySelectorAll(".artIcons img");
+var images = document.querySelectorAll(".PixelIcons img");
 
 
 images.forEach(function(img) {

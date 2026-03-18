@@ -13,7 +13,7 @@
         <nav class = "main-nav">
             <ul>
                 <li> <!-- Home Page Link-->
-                <a href = "HomePage.html">
+                <a href = "../index.html">
                     <h3>  Home </h3>
                 </a>
                 </li>
@@ -30,7 +30,7 @@
     <div class = "pixelSquareText">
         <p class = "aboutmeTextHI"> Hackathon 2025: Careful Cafe Assets <br>
             I was the lead designer, illustrator, and producer for 74
-            art assets during a 24-hour hackathon.
+            art assets during a 24-hour hackathon. 
         </p>
     </div>
 </div>
@@ -62,6 +62,13 @@
     </nav>
 </div>
 
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+
 <!-- Sprite Assets and Process-->
 <p class = "aboutmeTextHI horizontalAlign"> Character Sprites</p>
 
@@ -82,41 +89,48 @@
 </div>
 
 <!--Mikan Sprites-->
-<div id = "CharacterSprites" class = "horizontalSection">
+<div id = "CharacterSprites" class = "horizontalSection" style="margin-bottom: 600px;">
     <div class = "PixelIcons pixel-art">
         <img src = "../assetsIMG/PixelAssets/Mikan_faceleft_still.png">
     </div>
     <div class = "PixelIcons pixel-art">
-        <img src = "../assetsIMG/PixelAssets/Mikan_front_still.png">
+        <img src = "../assetsIMG/PixelAssets/Mikan_front_still.png" style = "width: 250px; height:auto; margin-left: 70px;">
     </div>
     <div class = "PixelIcons pixel-art">
         <img src = "../assetsIMG/PixelAssets/Mikan_faceright_still.png">
     </div>
-    <div class = "PixelIcons pixel-art">
+    <div class = "PixelIcons pixel-art" >
         <img src = "../assetsIMG/PixelAssets/Mikan_back_still.png">
     </div>
 </div>
 
 <!-- Background Assets and Process -->
-<div id = "Backgrounds" class = "horizontalSection">
-
-
+<p class = "aboutmeTextHI horizontalAlign"> Backgrounds</p>
+<div id = "Backgrounds" class = "horizontalSection" style="margin-bottom: 600px;">
+    <div class = "PixelIcons pixel-art">
+        <img src = "../assetsIMG/PixelAssets/map_kitchen_WIP.png">
+    </div>
+</div>
+<div class = "PixelIcons pixel-art">
+    <img src = "../assetsIMG/PixelAssets/map_kitchen_finish.png">
 </div>
 
 <!-- UI/UX-->
-<div id = "UIUX" class = "horizontalSection">
+<p class = "aboutmeTextHI horizontalAlign"> GUI</p>
+<div id = "UIUX" class = "horizontalSection" style="margin-bottom: 600px;">
 
 
 </div>
 
 <!-- Items -->
-<div id = "Items" class = "horizontalSection">
+<p class = "aboutmeTextHI horizontalAlign"> Items</p>
+<div id = "Items" class = "horizontalSection" style="margin-bottom: 600px;">
 
 
 </div>
 
 
-<script src = "../js/modalinteraction.js"></script>
+<script src = "../js/modalInteractionPixel.js"></script>
 </body>
 
 </html>
