@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&display=swap');
+/* Reset page spacing so full-bleed banners can reach edges */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #FFF5E9;
+  color: #333;
+  font-family: 'Abhaya Libre', sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  pointer-events: auto;
+  background-color: #ffbb3f;
+}
+
+.headerNavContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.headerNavContainer nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.headerNavContainer nav a {
+  color: #742b00;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 40px;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  font-weight: 200;
+  transition: color 0.2s ease-in-out;
+}
+
+.headerNavContainer nav a:hover {
+  color: #E88B0C;
+}
+
+.logoImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 16px;
+  float: left;
+}
+
+main {
+  padding: 24px;
+}
+
+.pageTitle {
+  text-align: center;
+  margin: 20px 0 30px;
+}
+
+.pageTitle h1 {
+  font-size: 48px;
+  color: #742b00;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  margin: 0;
+}
+
+.artItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.artItem {
+  display: block;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: none;
+}
+
+.artItem:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+}
+
+.artItem img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.artItem p {
+  margin: 10px 0 0;
+  color: #742b00;
+  font-size: 24px;
+  font-weight: 350;
+  text-align: center;
+  font-family: 'Baloo Thambi 2', sans-serif;
+}
+
+.border img {
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+    height:120px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.buff img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+.cuteFooter {
+  text-align: center;
+  margin-top: 24px;
+  padding: 12px;
+  background-color: #ffd596;
+  color: #742b00;
+  font-family: 'Sinhala MN', 'Abhaya Libre', sans-serif;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .headerNavContainer {
+    justify-content: center;
+  }
+
+  .headerNavContainer nav {
+    justify-content: center;
+  }
+
+  .headerNavContainer nav a {
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+  .pageTitle h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 12px;
+  }
+
+  .headerNavContainer nav a {
+    font-size: 18px;
+  }
+
+  .pageTitle h1 {
+    font-size: 24px;
+  }
+
+  .artItems {
+    grid-template-columns: 1fr;
+  }
+
+  .artItem img {
+    height: 320px;
+  }
+}

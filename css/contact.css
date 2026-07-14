@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&display=swap');
+/* Reset page spacing so full-bleed banners can reach edges */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #FFF5E9;
+  color: #333;
+  font-family: 'Abhaya Libre', sans-serif;
+  line-height: 1.5;
+}
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  pointer-events: auto;
+  background-color: #ffbb3f;
+}
+
+.headerNavContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.headerNavContainer nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.headerNavContainer nav a {
+  color: #742b00;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 40px;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  font-weight: 200;
+  transition: color 0.2s ease-in-out;
+}
+
+.headerNavContainer nav a:hover {
+  color: #E88B0C;
+}
+
+.logoImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 16px;
+    float:left;
+}
+
+.resumeButton {
+    color: #742b00;
+    background-color: #ffbb3f;
+    text-decoration: none;
+    font-family: "Sinhala MN", "Abhaya Libre", serif;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-left: 12px;
+}
+
+.resumeButton:hover {
+    background-color: #ffcf6b;
+}
+
+.contactMeContainer {
+    margin-top: 20px;
+}
+
+.contactMeGrid {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.contactMeIntro {
+    flex: 1 1 320px;
+    max-width: 420px;
+}
+
+.contactMeContainer h1{
+    color: #4E60A0;
+    font-family:  'Sinhala MN', 'Abhaya Libre', serif;
+    font-size: 70px;
+    margin: 24px 0 24px 34px;
+}
+
+.contactMeContainer p{
+    color: #e8680c;
+    font-family: 'Baloo Thambi 2', sans-serif;
+    margin: 0 0 12px 52px;
+    font-size: 28px;
+}
+
+.socialMediaLinks {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin: 50px 0 0 74px;
+}
+
+.socialMediaLinks a {
+    color: #4E60A0;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#contactForm {
+    flex: 1 1 520px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 150px 100px 20px 100px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+#contactForm textarea {
+    min-height: 160px;
+}
+
+#contactForm .submit-button {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #e8680c;
+    font-family: 'Sinhala MN', 'Abhaya Libre', serif;
+}
+
+.form-group input,  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #E88B0C;
+    background-color: #ffe3b9;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-family: 'Baloo Thambi 2', sans-serif;
+}
+
+
+.submit-button {
+    background-color: #E88B0C;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 6px 50px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 6px 6px 2px 0 rgba(232, 139, 12, 0.4);
+    transition: background-color 0.3s ease;
+
+}
+
+.submit-button:hover {
+    background-color: #ffbf35;
+}
+.contactMeFooterImage {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  float: none;
+  object-fit: cover;
+  object-position: center bottom;
+  clip-path: inset(10% 0 0 0);
+}
+
+.cuteFooter {
+  text-align: center;
+  margin-top: 24px;
+  padding: 12px;
+  background-color: #ffd596;
+  color: #742b00;
+  font-family: 'Abhaya Libre', sans-serif;
+  font-size: 16px;
+}
