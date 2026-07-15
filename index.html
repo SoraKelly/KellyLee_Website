@@ -91,7 +91,10 @@
                     </div>
                         <a href="files/Kelly_Lee_Resume.pdf" download class="resumeButton">Download Resume</a>
                 </div>
-                <form id="contactForm">
+                <form id="contactForm" action="https://formsubmit.co/kellyjpntoys@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New contact form submission">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="index.html?success=true#contactMeSection">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" 
@@ -126,6 +129,9 @@
                             class="submit-button">
                         Send
                     </button>
+                    <p id="successMessage" class="success-message" style="display:none;">
+                        Message sent! Thank you for contacting me.
+                    </p>
                 </form>
             </div>
             <img src = "images/homepage/pufferfooter.png" alt="Contact Me Footer" class="contactMeFooterImage">
@@ -141,32 +147,15 @@
     </div>
 
     <script>
-        const recipientEmail = 'kellyjpntoys@gmail.com';
-        const form = document.getElementById('contactForm');
+        document.addEventListener('DOMContentLoaded', function () {
+            const successMessage = document.getElementById('successMessage');
+            if (!successMessage) return;
 
-        if (form) {
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                const name = form.name.value.trim();
-                const email = form.email.value.trim();
-                const phone = form.phone.value.trim();
-                const message = form.message.value.trim();
-
-                const subject = `Website Contact Form: ${name}`;
-                const body = [
-                    `Name: ${name}`,
-                    `Email: ${email}`,
-                    `Phone: ${phone}`,
-                    '',
-                    'Message:',
-                    message
-                ].join('\n');
-
-                window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                form.reset();
-            });
-        }
+            const query = new URLSearchParams(window.location.search);
+            if (query.get('success') === 'true') {
+                successMessage.style.display = 'block';
+            }
+        });
     </script>
 </body>
 </html>
