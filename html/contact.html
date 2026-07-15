@@ -33,7 +33,9 @@
                     </div>
                     <a href="../files/Kelly_Lee_Resume.pdf" download class="resumeButton">Download Resume</a>
                 </div>
-                <form id="contactForm">
+                <form id="contactForm" action="https://formsubmit.co/kellyjpntoys@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New contact form submission">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" 
@@ -77,31 +79,64 @@
             <p>&copy; 2023 Contact Me. All rights reserved.</p>
         </div>
 
-        <script>
-            const recipientEmail = 'kellyjpntoys@gmail.com';
-            const form = document.getElementById('contactForm');
+        <div class="formPopupOverlay" id="formPopupOverlay" aria-hidden="true">
+            <div class="formPopup" role="dialog" aria-modal="true" aria-labelledby="formPopupTitle">
+                <h2 id="formPopupTitle">Message Sent!</h2>
+                <p>Thanks for reaching out. I’ll reply as soon as I can.</p>
+                <button type="button" class="submit-button" id="closePopupButton">Close</button>
+            </div>
+        </div>
 
-            if (form) {
-                form.addEventListener('submit', function (event) {
+        <script>
+            const contactForm = document.getElementById('contactForm');
+            const popupOverlay = document.getElementById('formPopupOverlay');
+            const closePopupButton = document.getElementById('closePopupButton');
+
+            function showPopup() {
+                popupOverlay.classList.add('open');
+                popupOverlay.setAttribute('aria-hidden', 'false');
+            }
+
+            function hidePopup() {
+                popupOverlay.classList.remove('open');
+                popupOverlay.setAttribute('aria-hidden', 'true');
+            }
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function (event) {
                     event.preventDefault();
 
-                    const name = form.name.value.trim();
-                    const email = form.email.value.trim();
-                    const phone = form.phone.value.trim();
-                    const message = form.message.value.trim();
+                    const formData = new FormData(contactForm);
+                    formData.set('_captcha', 'false');
+                    formData.set('_subject', 'Website Contact Form');
 
-                    const subject = `Website Contact Form: ${name}`;
-                    const body = [
-                        `Name: ${name}`,
-                        `Email: ${email}`,
-                        `Phone: ${phone}`,
-                        '',
-                        'Message:',
-                        message
-                    ].join('\n');
+                    try {
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData
+                        });
 
-                    window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                    form.reset();
+                        if (response.ok) {
+                            contactForm.reset();
+                            showPopup();
+                        } else {
+                            alert('There was a problem sending your message. Please try again later.');
+                        }
+                    } catch (error) {
+                        alert('Unable to send message right now. Please email me directly.');
+                    }
+                });
+            }
+
+            if (closePopupButton) {
+                closePopupButton.addEventListener('click', hidePopup);
+            }
+
+            if (popupOverlay) {
+                popupOverlay.addEventListener('click', function (event) {
+                    if (event.target === popupOverlay) {
+                        hidePopup();
+                    }
                 });
             }
         </script>
