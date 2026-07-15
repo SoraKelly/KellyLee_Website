@@ -36,6 +36,7 @@
                 <form id="contactForm" action="https://formsubmit.co/kellyjpntoys@gmail.com" method="POST">
                     <input type="hidden" name="_subject" value="New contact form submission">
                     <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="contact.html?success=true">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" 
@@ -70,6 +71,9 @@
                             class="submit-button">
                         Send
                     </button>
+                    <p id="successMessage" class="success-message" style="display:none;">
+                        Message sent! Thank you for contacting me.
+                    </p>
                 </form>
             </div>
             <img src = "../images/homepage/pufferfooter.png" alt="Contact Me Footer" class="contactMeFooterImage">
@@ -81,57 +85,15 @@
 
 
         <script>
-            const contactForm = document.getElementById('contactForm');
-            const popupOverlay = document.getElementById('formPopupOverlay');
-            const closePopupButton = document.getElementById('closePopupButton');
+            document.addEventListener('DOMContentLoaded', function () {
+                const successMessage = document.getElementById('successMessage');
+                if (!successMessage) return;
 
-            function showPopup() {
-                popupOverlay.classList.add('open');
-                popupOverlay.setAttribute('aria-hidden', 'false');
-            }
-
-            function hidePopup() {
-                popupOverlay.classList.remove('open');
-                popupOverlay.setAttribute('aria-hidden', 'true');
-            }
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', async function (event) {
-                    event.preventDefault();
-
-                    const formData = new FormData(contactForm);
-                    formData.set('_captcha', 'false');
-                    formData.set('_subject', 'Website Contact Form');
-
-                    try {
-                        const response = await fetch(contactForm.action, {
-                            method: 'POST',
-                            body: formData
-                        });
-
-                        if (response.ok) {
-                            contactForm.reset();
-                            showPopup();
-                        } else {
-                            alert('There was a problem sending your message. Please try again later.');
-                        }
-                    } catch (error) {
-                        alert('Unable to send message right now. Please email me directly.');
-                    }
-                });
-            }
-
-            if (closePopupButton) {
-                closePopupButton.addEventListener('click', hidePopup);
-            }
-
-            if (popupOverlay) {
-                popupOverlay.addEventListener('click', function (event) {
-                    if (event.target === popupOverlay) {
-                        hidePopup();
-                    }
-                });
-            }
+                const query = new URLSearchParams(window.location.search);
+                if (query.get('success') === 'true') {
+                    successMessage.style.display = 'block';
+                }
+            });
         </script>
     </body>
 </html>
