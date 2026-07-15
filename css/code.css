@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;600;700&display=swap');
 /* Reset page spacing so full-bleed banners can reach edges */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -25,6 +25,56 @@ header {
   z-index: 3;
   pointer-events: auto;
   background-color: #ffbb3f;
+}
+
+h1{
+    margin: 0;
+    color:#e8680c;
+    font-family: "Sinhala MN", "Abhaya Libre", serif;
+    font-size: 80px;
+}
+
+main p {
+  font-size: 28px;
+  color:#742b00;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-family: "Baloo Thambi 2", sans-serif;
+}
+
+.projectNav {
+  position: fixed;
+  top: 140px;
+  left: 18px;
+  width: 220px;
+  padding: 18px;
+  border-radius: 24px;
+  z-index: 5;
+}
+
+.projectNavButton {
+  display: block;
+  width: 100%;
+  padding: 16px 18px;
+  background-color: #4E60A0;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 6px 6px 2px 0 rgba(232, 139, 12, 0.4);
+  transition: background-color 0.2s ease;
+}
+
+.projectNavButton:hover {
+  background-color: #ffd596;
+}
+
+main {
+  margin-left: 260px;
+  padding: 24px;
 }
 
 .headerNavContainer {
@@ -65,6 +115,56 @@ header {
     float:left;
 }
 
+.introduction {
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 100px 75px 200px 300px;
+}
+
+.introduction img{
+  float:left;
+  width:500px;
+}
+
+.introduction a img{
+  width: 50px;
+  margin-bottom: 50px;
+}
+
+.blendmointro {
+  text-align: left;
+  margin: 70px 75px 200px 75px;
+}
+
+.blendmointro img{
+  float:right;
+  margin-left: 50px;
+  width:300px;
+}
+
+.blendmodeeper {
+  text-align: right;
+  margin: 70px 75px 300px 75px;
+}
+
+.blendmodeeper img{
+  float:left;
+  width:500px;
+  margin-right: 50px;
+}
+
+.footlock {
+  text-align: left;
+  margin: 70px 75px 300px 75px;
+}
+
+.footlock img{
+  float:right;
+  margin-left: 50px;
+  width:700px;
+}
+
 
 .cuteFooter {
   text-align: center;
@@ -74,4 +174,94 @@ header {
   color: #742b00;
   font-family: 'Sinhala MN', 'Abhaya Libre', sans-serif;
   font-size: 16px;
+}
+
+.cuteFooter p{
+  font-family: 'Sinhala MN', 'Abhaya Libre', sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .projectNav {
+    width: 200px;
+    left: 12px;
+    padding: 16px;
+  }
+
+  main {
+    margin-left: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectNav {
+    position: static;
+    width: auto;
+    margin: 0 auto 24px;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .projectNavButton {
+    width: 100%;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 24px;
+  }
+
+  .headerNavContainer {
+    justify-content: center;
+  }
+
+  .headerNavContainer nav {
+    justify-content: center;
+  }
+
+  .headerNavContainer nav a {
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+  .introduction {
+    margin: 32px auto;
+  }
+
+  .introduction h1 {
+    font-size: 36px;
+  }
+
+  .blendmointro,
+  .blendmodeeper,
+  .footlock {
+    margin: 24px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 12px;
+  }
+
+  .headerNavContainer nav a {
+    font-size: 18px;
+  }
+
+  .introduction img,
+  .blendmointro img,
+  .blendmodeeper img,
+  .footlock img {
+    max-width: 100%;
+  }
+
+  .introduction h1 {
+    font-size: 28px;
+  }
+
+  .introduction p,
+  .blendmointro p,
+  .blendmodeeper p,
+  .footlock p {
+    font-size: 18px;
+  }
 }

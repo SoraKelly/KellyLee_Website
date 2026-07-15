@@ -18,6 +18,9 @@
             </nav>
         </div>
     </header>
+    <div class="projectNav">
+        <a class="projectNavButton" href="#blendmo">Blendmo</a>
+    </div>
     <main>
         <div class = "introduction">
             <img src = "../images/homepage/dabuff.png" alt="Puffer Fish" class="pufferlookies">
@@ -25,54 +28,62 @@
             <p> My goal for all of my coding projects is to bridge the gap between art and technical logic together where code enhances art
                 -- not replaces it.
             </p>
-            <p> I give creative liberties and freedoms for artists to value their work and enjyo the process!</p>
+            <p> I give creative liberties and freedoms for artists to value their work and enjoy the process!</p>
+            <a href = "https://github.com/KellyLee" target="_blank">
+                <img src = "../images/homepage/githubLogo.png" alt="Github Logo" class="githublogo">
+            </a>
         </div>
 
-        <div class = "blendmo">
+        <div class = "blendmo" id="blendmo">
             <div class = "blendmocontent">
-                <h1>Blendmo</h1>
-                <img src = "../images/codepage/blendmo/motionmapping.png" alt="BlendMo Logo" class="blendmoLogo">
-                <p> For my senior design project, my group and I wanted to focus on building an extension within Blender that cleans up messy, jittery, and 
-                    unstable motion captured data. Many instances of having messy data come from markerless capture, a more affordable and accessible option that allows 
-                    people of all skill levels to dabble in the art. 
-                </p>
+                <div class = "blendmointro">
+                    <h1>Blendmo</h1>
+                    <img src = "../images/code/blendmo/motionmapping.png" alt="Motion Mapping" class="motionmappingcontainer">
+                    <p> For my senior design project, my group and I wanted to focus on building an extension within Blender that cleans up messy, jittery, and 
+                        unstable motion captured data. Many instances of having messy data come from markerless capture, a more affordable and accessible option that allows 
+                        people of all skill levels to dabble in the art. 
+                    </p>
+                </div>
                 <p>My team interviewed people with motion capture experience,
                     Chuck Ghislandi and Em Dang to gauge the main issues of cleaning
                     up the data. We also chose to use Blender as it is a free and
                     powerful 3D software that makes it incredibly accessible.
                 </p>
-                <img src="../images/codepage/blendmo/blendmo1.png" alt="BlendMo img1" class="blendmoLogo">
-                <p>
-                    Our extension is coded entirely in
-                    Python using Blender's Python API and Math library
-                    and has three main
-                    functions: deleting negligible
-                    frames, locking the feet to avoid
-                    slide or skating, and rescaling
-                    motion to models of different
-                    proportions.
-                </p>
-                <P>
-                    I worked extensively on the Foot Lock, ensuring that the feet are
-                    grounded at appropriate times.
-                </P>
+                <div class = "blendmodeeper">
+                    <img src="../images/code/blendmo/blendmo1.png" alt="BlendMo img1" class="blendmo1container">
+                    <p>
+                        Our extension is coded entirely in
+                        Python using Blender's Python API and Math library
+                        and has three main
+                        functions: deleting negligible
+                        frames, locking the feet to avoid
+                        slide or skating, and rescaling
+                        motion to models of different
+                        proportions.
+                    </p>
+                    <P>
+                        I worked extensively on the Foot Lock, ensuring that the feet are
+                        grounded at appropriate times. Feet can slide in all axes so it was difficult to determine when a sliding foot should be grounded or not.
+                    </P>
+                </div>
 
-                <p>
-                    First, the extension will scrub
-                    through all of the frames of
-                    the motion captured data once
-                    the user selects the Left and
-                    Right Feet. BlendMo checks
-                    how much the feet move in
-                    consecutive frames and how
-                </p>
 
-                <p>
-                    much distance from the ground the feet are. It provides options
-                    for the user to state where the ground should be but also provides
-                    a calculated estimate that uses average of the lower positions of
-                    the feet.
-                </p>
+                <div class = "footlock">
+                    <img src="../images/code/blendmo/footlockProperties.png" alt="BlendMo img2" class="footlockPropertiescontainer">
+                    <p>
+                        First, the extension will scrub
+                        through all of the frames of
+                        the motion captured data once
+                        the user selects the Left and
+                        Right Feet. BlendMo checks
+                        how much the feet move in
+                        consecutive frames and how 
+                        much distance from the ground the feet are. It provides options
+                        for the user to state where the ground should be but also provides
+                        a calculated estimate that uses average of the lower positions of
+                        the feet.
+                    </p>
+                </div>
 
                 <p>
                     From these calculations, BlendMo has now detected “planted

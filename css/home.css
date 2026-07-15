@@ -316,6 +316,11 @@ header {
     font-weight: 700;
 }
 
+.socialMediaLinks a img{
+  width: 50px;
+  margin-bottom: 50px;
+}
+
 #contactForm {
     flex: 1 1 520px;
     display: grid;

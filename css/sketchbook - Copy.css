@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&display=swap');
+/* Reset page spacing so full-bleed banners can reach edges */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #FFF5E9;
+  color: #333;
+  font-family: 'Abhaya Libre', sans-serif;
+  line-height: 1.5;
+}
+
+body.modalOpen {
+  overflow: hidden;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  pointer-events: auto;
+  background-color: #ffbb3f;
+}
+
+.headerNavContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.headerNavContainer nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.headerNavContainer nav a {
+  color: #742b00;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 40px;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  font-weight: 200;
+  transition: color 0.2s ease-in-out;
+}
+
+.headerNavContainer nav a:hover {
+  color: #E88B0C;
+}
+
+.logoImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 16px;
+  float: left;
+}
+
+main {
+  padding: 24px;
+}
+
+.pageTitle {
+  text-align: center;
+  margin: 20px 0 24px;
+}
+
+.pageTitle h1 {
+  font-size: 48px;
+  color: #742b00;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  margin: 0;
+}
+
+.itemContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.itemSection {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.item {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.item p {
+  margin: 8px 0 0;
+  color: #742b00;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Baloo Thambi 2', sans-serif;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modalContent {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.modal img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal p {
+  color: #fff;
+  margin-top: 12px;
+  font-size: 20px;
+  font-family: 'Baloo Thambi 2', sans-serif;
+}
+
+.modalClose,
+.modalNav {
+  position: absolute;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #742b00;
+  background: #fff;
+}
+
+.modalClose {
+  top: 20px;
+  right: 20px;
+}
+
+.modalNav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modalNav.prev {
+  left: -12px;
+}
+
+.modalNav.next {
+  right: -12px;
+}
+
+.cuteFooter {
+  text-align: center;
+  margin-top: 24px;
+  padding: 12px;
+  background-color: #ffd596;
+  color: #742b00;
+  font-family: 'Abhaya Libre', sans-serif;
+  font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  .itemSection {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .item.large {
+    grid-column: span 8;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerNavContainer {
+    justify-content: center;
+  }
+
+  .headerNavContainer nav {
+    justify-content: center;
+  }
+
+  .headerNavContainer nav a {
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+  .pageTitle h1 {
+    font-size: 32px;
+  }
+
+  .itemSection {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .item,
+  .item.tall,
+  .item.wide,
+  .item.large,
+  .item.square {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 0;
+  }
+
+  .item img {
+    min-height: 240px;
+    height: 240px;
+  }
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;600;700&display=swap');
 /* Reset page spacing so full-bleed banners can reach edges */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -126,6 +126,12 @@ header {
     font-weight: 700;
 }
 
+.socialMediaLinks a img{
+  width: 50px;
+  margin-bottom: 50px;
+}
+
+
 #contactForm {
     flex: 1 1 520px;
     display: grid;
@@ -181,6 +187,8 @@ header {
 .submit-button:hover {
     background-color: #ffbf35;
 }
+
+
 .contactMeFooterImage {
   width: 50%;
   display: block;

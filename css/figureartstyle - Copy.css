@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&display=swap');
+/* Reset page spacing so full-bleed banners can reach edges */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #FFF5E9;
+  color: #333;
+  font-family: 'Abhaya Libre', sans-serif;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body.modalOpen {
+  overflow: hidden;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  pointer-events: auto;
+  background-color: #ffbb3f;
+}
+
+.headerNavContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.headerNavContainer nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.headerNavContainer nav a {
+  color: #742b00;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 40px;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  font-weight: 200;
+  transition: color 0.2s ease-in-out;
+}
+
+.headerNavContainer nav a:hover {
+  color: #E88B0C;
+}
+
+.logoImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 16px;
+    float:left;
+}
+
+main {
+  padding: 0 24px 40px;
+}
+
+.TitleContainer {
+  text-align: center;
+  margin: 40px 0 24px;
+}
+
+.TitleContainer h1 {
+  font-size: 48px;
+  color: #742b00;
+  margin: 0;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  font-weight: 700;
+}
+
+.itemContainer {
+  display: grid;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallerySection {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(232, 139, 12, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.gallerySection h2 {
+  color: #4E60A0;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  font-size: 32px;
+  margin: 0 0 20px;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.item {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: none;
+}
+
+.item:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+}
+
+.item img {
+  width: 100%;
+  height: 630px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  background: #fdf3e6;
+}
+
+.item p {
+  margin: 8px 0 0;
+  color: #742b00;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Baloo Thambi 2', sans-serif;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modalContent {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.modal img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal p {
+  color: #fff;
+  margin-top: 12px;
+  font-size: 20px;
+  font-family: 'Baloo Thambi 2', sans-serif;
+}
+
+.modalClose,
+.modalNav {
+  position: absolute;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #742b00;
+  background: #fff;
+}
+
+.modalClose {
+  top: 20px;
+  right: 20px;
+}
+
+.modalNav {
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.modalNav.prev {
+  left: -12px;
+}
+
+.modalNav.next {
+  right: -12px;
+}
+
+.cuteFooter {
+  text-align: center;
+  margin-top: 24px;
+  padding: 12px;
+  background-color: #ffd596;
+  color: #742b00;
+  font-family: 'Abhaya Libre', sans-serif;
+  font-size: 16px;
+}
+
+
+@media (max-width: 1024px) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .headerNavContainer {
+    justify-content: center;
+  }
+
+  .headerNavContainer nav {
+    justify-content: center;
+  }
+
+  .headerNavContainer nav a,
+  .footerContainer nav a {
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+  .TitleContainer h1 {
+    font-size: 32px;
+  }
+
+  .gallerySection {
+    padding: 16px;
+  }
+
+  .gallerySection h2 {
+    font-size: 24px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .item img {
+    height: 300px;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0 12px 24px;
+  }
+
+  .headerNavContainer,
+  .footerContainer {
+    padding: 12px;
+  }
+
+  .headerNavContainer nav a,
+  .footerContainer nav a {
+    font-size: 18px;
+  }
+
+  .TitleContainer h1 {
+    font-size: 24px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .item img {
+    height: 160px;
+  }
+}
