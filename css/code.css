@@ -55,14 +55,14 @@ main p {
 .projectNavButton {
   display: block;
   width: 100%;
-  padding: 16px 18px;
-  background-color: #4E60A0;
+  padding: 12px 18px;
+  background-color: #6f9bc5;
   color: white;
-  border-radius: 25px;
+  border-radius: 40px;
   text-decoration: none;
   font-family: "Sinhala MN", "Abhaya Libre", serif;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
   box-shadow: 6px 6px 2px 0 rgba(232, 139, 12, 0.4);
   transition: background-color 0.2s ease;
@@ -176,9 +176,6 @@ main {
   font-size: 16px;
 }
 
-.cuteFooter p{
-  font-family: 'Sinhala MN', 'Abhaya Libre', sans-serif;
-}
 
 @media (max-width: 1024px) {
   .projectNav {

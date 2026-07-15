@@ -209,20 +209,6 @@ header {
   font-size: 16px;
 }
 
-.formPopupOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  z-index: 999;
-}
-
-.formPopupOverlay.open {
-  display: flex;
-}
 
 .formPopup {
   width: min(100%, 420px);
