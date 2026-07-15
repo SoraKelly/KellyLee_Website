@@ -18,6 +18,73 @@
             </nav>
         </div>
     </header>
+    <main>
+        <div class = "introduction">
+            <img src = "../images/homepage/dabuff.png" alt="Puffer Fish" class="pufferlookies">
+            <h1> My Projects </h1>
+            <p> My goal for all of my coding projects is to bridge the gap between art and technical logic together where code enhances art
+                -- not replaces it.
+            </p>
+            <p> I give creative liberties and freedoms for artists to value their work and enjyo the process!</p>
+        </div>
+
+        <div class = "blendmo">
+            <div class = "blendmocontent">
+                <h1>Blendmo</h1>
+                <img src = "../images/codepage/blendmo/motionmapping.png" alt="BlendMo Logo" class="blendmoLogo">
+                <p> For my senior design project, my group and I wanted to focus on building an extension within Blender that cleans up messy, jittery, and 
+                    unstable motion captured data. Many instances of having messy data come from markerless capture, a more affordable and accessible option that allows 
+                    people of all skill levels to dabble in the art. 
+                </p>
+                <p>My team interviewed people with motion capture experience,
+                    Chuck Ghislandi and Em Dang to gauge the main issues of cleaning
+                    up the data. We also chose to use Blender as it is a free and
+                    powerful 3D software that makes it incredibly accessible.
+                </p>
+                <img src="../images/codepage/blendmo/blendmo1.png" alt="BlendMo img1" class="blendmoLogo">
+                <p>
+                    Our extension is coded entirely in
+                    Python using Blender's Python API and Math library
+                    and has three main
+                    functions: deleting negligible
+                    frames, locking the feet to avoid
+                    slide or skating, and rescaling
+                    motion to models of different
+                    proportions.
+                </p>
+                <P>
+                    I worked extensively on the Foot Lock, ensuring that the feet are
+                    grounded at appropriate times.
+                </P>
+
+                <p>
+                    First, the extension will scrub
+                    through all of the frames of
+                    the motion captured data once
+                    the user selects the Left and
+                    Right Feet. BlendMo checks
+                    how much the feet move in
+                    consecutive frames and how
+                </p>
+
+                <p>
+                    much distance from the ground the feet are. It provides options
+                    for the user to state where the ground should be but also provides
+                    a calculated estimate that uses average of the lower positions of
+                    the feet.
+                </p>
+
+                <p>
+                    From these calculations, BlendMo has now detected “planted
+                    keyframes” that are later grouped into planted segments that have
+                    smoothstep curve interpolations at the beginning and end of
+                    them. The extension then updates the positions of the feet and
+                    issue of foot skating or sliding is resolved.
+                </p>
+            </div>
+        </div>
+
+    </main>
     <div class = "cuteFooter">
         <p>&copy; 2023 Code Page. All rights reserved.</p>
     </div>
