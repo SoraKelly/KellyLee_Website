@@ -124,6 +124,11 @@ main {
   font-family: 'Baloo Thambi 2', sans-serif;
 }
 
+.item:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+}
+
 .modal {
   position: fixed;
   inset: 0;
