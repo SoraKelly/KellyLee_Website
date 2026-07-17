@@ -92,7 +92,22 @@ main {
   padding: 0 12px;
 }
 
-.itemSection {
+.gallerySection {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(232, 139, 12, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.gallerySection h2 {
+  color: #4E60A0;
+  font-family: "Sinhala MN", "Abhaya Libre", serif;
+  font-size: 32px;
+  margin: 0 0 20px;
+}
+
+.galleryGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
@@ -211,12 +226,12 @@ main {
 }
 
 @media (max-width: 1024px) {
-  .itemSection {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .item.large {
-    grid-column: span 8;
+    grid-column: span 2;
   }
 }
 
