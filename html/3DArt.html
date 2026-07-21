@@ -2,47 +2,129 @@
 <html>
 
 <head>
-    <title> 3D Art Page</title>
-    <link rel = "stylesheet" href = "../css/3Dart.css">
+    <title>3D Art Page</title>
+    <link rel="stylesheet" href="../css/3Dart.css">
 </head>
 <body>
 <header>
-    <div class = "headerNavContainer">
+    <img src="../images/homepage/iconAebsite.png" alt="Kelly Lee Logo" class="logoImage">
+    <div class="headerNavContainer">
         <nav>
-                <a href = "../index.html">Home</a>
-            <a href = "art.html">Art</a>
-            <a href = "code.html">Code</a>
-            <a href = "contact.html">Contact Me</a>
+            <a href="../index.html">Home</a>
+            <a href="art.html">Art</a>
+            <a href="code.html">Code</a>
+            <a href="contact.html">Contact Me</a>
         </nav>
+    </div>
 </header>
 
 <main>
-    <div class = "border">
-        <img src = "../images/homepage/pufferborder.png" alt="Puffer Fish" class="pufferBorderImage">
+    <div class="border">
+        <img src="../images/homepage/pufferborder.png" alt="Puffer Fish" class="pufferBorderImage">
     </div>
-    <div class = "pageTitle">
-        <h1> 3D Projects I Made in my Spare Time!</h1>
-        <p> I use ZBrush and Maya for Modeling</p>
+    <div class="projectNav">
+        <a class="projectNavButton" href="#Ryland-Grace">Work in Progress: Full Body Rig</a>
     </div>
-    <div class = "itemContainer">
-        <div class = "item">
-            <img src = "images/3DArt1.jpg" alt = "3D Art 1">
-            <p> 3D Art 1 </p>
-        </div>
-        <div class = "item">
-            <img src = "images/3DArt2.jpg" alt = "3D Art 2">
-            <p> 3D Art 2 </p>
-        </div>
-        <div class = "item">
-            <img src = "images/3DArt3.jpg" alt = "3D Art 3">
-            <p> 3D Art 3 </p>
-        </div>
+    <div class="pageTitle">
+        <h1>3D Projects I Made in my Spare Time!</h1>
+        <p>I use ZBrush and Maya for Modeling</p>
+    </div>
+    <div class="itemContainer">
+        <section id="Ryland-Grace" class="gallerySection">
+            <h2>WIP of Full Body Model</h2>
+            <p>A project I started on July 16, 2026 (to present). I am sculpting and rigging Ryland Grace from Andy Weir's Project Hail Mary.</p>
+            <div class="galleryGrid">
+                <button class="item" type="button" data-src="../images/artpage/3DArt/HeadAngleJuly202026.png" data-title="Head view 7/20/2026">
+                    <img src="../images/artpage/3DArt/HeadAngleJuly202026.png" alt="HeadAngle1">
+                    <p>Head Views (as of July 20, 2026)</p>
+                </button>
+            </div>
+        </section>
     </div>
 </main>
 
+<div id="imageModal" class="modal" aria-hidden="true">
+    <button class="modalClose" type="button" aria-label="Close image">x</button>
+    <button class="modalNav prev" type="button" aria-label="Previous image">←</button>
+    <div class="modalContent">
+        <img id="modalImage" src="" alt="">
+        <iframe id="modalPdf" class="modalPdf" hidden></iframe>
+        <p id="modalCaption"></p>
+    </div>
+    <button class="modalNav next" type="button" aria-label="Next image">→</button>
+</div>
+
+<script>
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalPdf = document.getElementById('modalPdf');
+    const modalCaption = document.getElementById('modalCaption');
+    const closeButton = document.querySelector('.modalClose');
+    const prevButton = document.querySelector('.modalNav.prev');
+    const nextButton = document.querySelector('.modalNav.next');
+    const galleryItems = Array.from(document.querySelectorAll('.galleryGrid .item'));
+    let currentIndex = 0;
+
+    function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modalOpen');
+    }
+
+    function showImage(index) {
+        currentIndex = index;
+        const item = galleryItems[currentIndex];
+        if (!item) return;
+        const isPixelAsset = item.classList.contains('pixelAsset');
+        const pdfUrl = item.dataset.pdf;
+
+        if (pdfUrl) {
+            modalImage.hidden = true;
+            modalPdf.hidden = false;
+            modalPdf.src = pdfUrl;
+            modalPdf.classList.remove('pixelAsset');
+        } else {
+            modalPdf.hidden = true;
+            modalImage.hidden = false;
+            modalImage.src = item.dataset.src;
+            modalImage.alt = item.dataset.title;
+            modalImage.classList.toggle('pixelAsset', isPixelAsset);
+        }
+
+        modalCaption.textContent = item.dataset.title;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modalOpen');
+    }
+
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => showImage(index));
+    });
+
+    prevButton.addEventListener('click', () => showImage((currentIndex - 1 + galleryItems.length) % galleryItems.length));
+    nextButton.addEventListener('click', () => showImage((currentIndex + 1) % galleryItems.length));
+    closeButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeModal();
+        } else if (event.key === 'ArrowLeft') {
+            showImage((currentIndex - 1 + galleryItems.length) % galleryItems.length);
+        } else if (event.key === 'ArrowRight') {
+            showImage((currentIndex + 1) % galleryItems.length);
+        }
+    });
+</script>
+
 <footer>
-    <div class = "cuteFooter">
-        <p> &copy; 2026 Kelly Lee. All rights reserved. </p>
+    <div class="cuteFooter">
+        <p>&copy; 2026 Kelly Lee. All rights reserved.</p>
     </div>
 </footer>
 
