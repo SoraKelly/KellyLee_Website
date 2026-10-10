@@ -220,19 +220,16 @@ main {
 }
 
 .pdfPreview {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 280px;
+  display: block;
+  width: 100%;
+  height: 280px;
+  border: 0;
+  pointer-events: none;
   background: #f5f1e8;
-  color: #742b00;
-  font-family: 'Baloo Thambi 2', sans-serif;
-  font-size: 22px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 .modalPdf {
+  display: block;
   width: 100%;
   height: 80vh;
   border: none;
