@@ -69,8 +69,10 @@
 
         <!-- Navigation Dots -->
         <div class="carousel-nav">
-            <a href="#slide-1" class="nav-dot"></a>
-            <a href="#slide-2" class="nav-dot"></a>
+            <a href="#slide-1" class="nav-dot" aria-label="Go to Art slide"></a>
+            <a href="#slide-2" class="nav-dot" aria-label="Go to Code slide"></a>
+            <button class="slide Prev" type="button" aria-label="Previous slide">←</button>
+            <button class="slide Next" type="button" aria-label="Next slide">→</button>
         </div>
         </div>
     </div>
@@ -148,11 +150,59 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const successMessage = document.getElementById('successMessage');
-            if (!successMessage) return;
+            const carouselSlider = document.querySelector('.carousel-slider');
+            if (carouselSlider) {
+                const slides = Array.from(carouselSlider.querySelectorAll('.carousel-slide'));
+                const dots = Array.from(carouselSlider.querySelectorAll('.nav-dot'));
+                const previousButton = carouselSlider.querySelector('.slide.Prev');
+                const nextButton = carouselSlider.querySelector('.slide.Next');
+                let currentSlideIndex = 0;
+                let scrollSyncTimeout;
+                let programmaticScroll = false;
 
+                const goToSlide = function (index) {
+                    if (slides.length === 0) return;
+
+                    currentSlideIndex = (index + slides.length) % slides.length;
+                    const targetLeft = currentSlideIndex * carouselSlider.clientWidth;
+                    programmaticScroll = Math.abs(targetLeft - carouselSlider.scrollLeft) > 1;
+                    carouselSlider.scrollTo({ left: targetLeft, behavior: 'smooth' });
+                };
+
+                previousButton.addEventListener('click', function () {
+                    goToSlide(currentSlideIndex - 1);
+                });
+                nextButton.addEventListener('click', function () {
+                    goToSlide(currentSlideIndex + 1);
+                });
+
+                dots.forEach(function (dot, index) {
+                    dot.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        goToSlide(index);
+                    });
+                });
+
+                carouselSlider.addEventListener('scroll', function () {
+                    window.clearTimeout(scrollSyncTimeout);
+                    scrollSyncTimeout = window.setTimeout(function () {
+                        if (programmaticScroll) {
+                            programmaticScroll = false;
+                            return;
+                        }
+
+                        const slideWidth = carouselSlider.clientWidth;
+                        if (slideWidth > 0) {
+                            currentSlideIndex = Math.round(carouselSlider.scrollLeft / slideWidth);
+                            currentSlideIndex = Math.min(currentSlideIndex, slides.length - 1);
+                        }
+                    }, 150);
+                });
+            }
+
+            const successMessage = document.getElementById('successMessage');
             const query = new URLSearchParams(window.location.search);
-            if (query.get('success') === 'true') {
+            if (successMessage && query.get('success') === 'true') {
                 successMessage.style.display = 'block';
             }
         });

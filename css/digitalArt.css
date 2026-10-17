@@ -210,6 +210,10 @@ main {
   background: #fff;
 }
 
+.modalPdf[hidden] {
+  display: none;
+}
+
 .modalPdf.pixelAsset {
   width: 90vw;
 }
